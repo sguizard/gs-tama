@@ -1063,7 +1063,7 @@ def collapse_transcripts(trans_obj_list,collapse_flag): #use this to collapse tr
     try:
         collapse_flag
     except NameError:
-        print "collapse_flag not defined, using default of most commond ends"
+        print("collapse_flag not defined, using default of most commons ends")
         collapse_flag == "common_ends"
     
     max_exon_num = 0
@@ -3233,7 +3233,7 @@ def process_trans_group(trans_line_list, total_gene_count):
         
         gene_id = id_line_split[0]
         trans_id = id_line_split[1]
-         
+        
         source_id = trans_line_split[12]
         uniq_trans_id = "_".join([source_id,trans_id])
         
@@ -3503,7 +3503,7 @@ for file_line in filelist_file_contents:
     # check for issues with the use of spaces in filelist file
     space_line_split = file_line.split(" ")
     if len(space_line_split) > 1:
-        print("Error with " + filelist_file)
+        print("Error with Incorrect seq types given in filelist file")
         print(file_line)
         print("Please make sure it is tab separated with no empty lines and no spaces")
         sys.exit()
@@ -3526,7 +3526,7 @@ for file_line in filelist_file_contents:
         source_dict[source_id]['priority_rank'] = priority_rank # by type of merge event 1,1,1 ->  start,junction,end
         
         if seq_type != "capped" and seq_type != "no_cap":
-            print("Incorrect seq types given in filelist file. Please use capped or  no_cap")
+            print("Incorrect seq types given in filelist file. Please use capped or no_cap")
             sys.exit()
 
         source_trans_gene_dict[source_id] = {}
