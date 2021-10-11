@@ -25,7 +25,7 @@ Added more informative error message for issues with strand information from inp
 
 """
 
-tm_version = 'tm0.0'
+tm_version = '0.0.1'
 
 
 start_time = time.time()
@@ -52,7 +52,18 @@ ap.add_argument('-s', type=str, nargs=1, help='Use gene and transcript ID from a
 
 ap.add_argument('-cds', type=str, nargs=1, help='Use CDS from a merge source. Specify source name from filelist file here.')
 
+ap.add_argument('-v', type=str, nargs=1, help='Prints out version date and exits.')
+
 opts = ap.parse_args()
+
+#check for version request
+if not opts.v:
+    print(tm_version)
+else:
+    print(tm_version)
+    print("Program did not run")
+    sys.exit()
+
 
 #check for missing args
 missing_arg_flag = 0
