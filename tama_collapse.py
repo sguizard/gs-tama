@@ -22,8 +22,8 @@ This script collapses transcripts and groups transcripts into genes for long rea
 
 """
 
-tc_version = 'tc0.0'
-tc_date = 'tc_version_date_2020_12_14'
+tc_version = '1.0.3'
+tc_date = 'tc_version_date_2021_11_03'
 
 ### Notes on changes
 # Fixed issue with coordinates of soft clipped variants in the variant output file. 
@@ -55,7 +55,7 @@ ap.add_argument('-log', type=str, nargs=1, help='Turns off log output to screen 
 ap.add_argument('-v', type=str, nargs=1, help='Prints out version date and exits.')
 
 ap.add_argument('-rm', type=str, nargs=1, help='Run mode allows you to use original or low_mem mode, default is original')
-ap.add_argument('-vc', type=str, nargs=1, help='Variation covwerage threshold: Default 5 reads')
+ap.add_argument('-vc', type=str, nargs=1, help='Variation coverage threshold: Default 5 reads')
 
 
 opts = ap.parse_args()
@@ -255,7 +255,7 @@ a_perc_thresh = 70.0
 no_mismatch_flag = "0" # use this for showing no mismatch near splice junction
 # see calc_error_rate and  sj_error_priority_start and sj_error_priority_end
 
-bed_outfile_name = outfile_prefix + ".bed"
+bed_outfile_name = outfile_prefix + "_collapsed.bed"
 outfile_bed = open(bed_outfile_name,"w")
 
 cluster_outfile_name = outfile_prefix + "_read.txt"
